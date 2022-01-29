@@ -1,6 +1,6 @@
 {
   "name": "fast-topics",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "dist/topics.js",
   "types": "dist/topics.d.ts",
   "scripts": {
@@ -10,8 +10,7 @@
     "build": "npm run build:ts && npm run build:go",
     "demo": "cd demo && npm i && npm run start"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/golang-wasm-exec": "^1.15.0",
     "typescript": "^4.5.5"
