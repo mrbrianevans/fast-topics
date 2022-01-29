@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "es2022",
+    "target": "ES2021",
+    "sourceMap": true,
+    "allowJs": true,
+    "outDir": "dist",
+    "declaration": true,
+    "removeComments": true
+  },
+  "include": ["js"],
+  "exclude": [
+    "node_modules"
+  ]
+}
