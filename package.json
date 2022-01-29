@@ -1,11 +1,14 @@
 {
   "name": "fast-topics",
-  "version": "1.0.0",
+  "version": "0.0.0",
+  "main": "dist/topics.js",
+  "types": "dist/topics.d.ts",
   "scripts": {
     "build:ts": "tsc",
-    "build:go": "cd go && go build -o ../dist/topics.wasm",
+    "watch:ts": "tsc -b -w",
+    "build:go": "cd go && set GOOS=js&&set GOARCH=wasm&& go build -o ../dist/topics.wasm",
     "build": "npm run build:ts && npm run build:go",
-    "demo": "echo 'Visit localhost:8080/demo' && npx http-server"
+    "demo": "cd demo && npm i && npm run start"
   },
   "dependencies": {
   },
