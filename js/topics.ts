@@ -1,6 +1,7 @@
-import './wasm_exec.js'
+import {setupEnvironment} from './wasm_exec.js'
 import type {GetTopicsOptions} from "./GetTopicsOptions";
 
+setupEnvironment() //  needs to set up before anything else will work
 /**
  * set WASM initialisation function to fetching a URL of the .wasm file
  */
@@ -42,12 +43,12 @@ export async function initialiseWasm(binary: ArrayBuffer)
 /**
  * call this before calling the getTopics function
  */
-export async function initialiseWasm(input: string | ArrayBuffer) {
-    if ('getTopicsString' ! in window)
+export async function initialiseWasm(input?: string | ArrayBuffer) {
+    if (typeof getTopicsString !== 'undefined')
         console.warn('WASM has already been initialised')
     if (typeof input === 'string') setInitFunction(initWithFetch(input))
     else if (input instanceof ArrayBuffer) setInitFunction(initWithBinary(input))
-    else console.warn("Invalid input to 'initialiseWasm'. Must be either URL: string, or binary: ArrayBuffer")
+    else if (input) console.warn("Invalid input to 'initialiseWasm'. Must be either URL: string, or binary: ArrayBuffer")
     await initWasm()
 }
 
@@ -57,6 +58,7 @@ export async function initialiseWasm(input: string | ArrayBuffer) {
  * `topics` is an array of the generated topics, and their indexes match the topic references in documents.
  */
 interface GetTopicsReturnType {
+    // todo: there is an issue which causes these to be { '1': [...], '2': [...] }, rather than [ [...], [...] ]
     docs: { topic: number, rank: number }[][]
     topics: { word: number, rank: number }[][]
 }

@@ -1,11 +1,12 @@
 // Copyright 2018 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-
-(() => {
-    // Map multiple JavaScript environments to a single common API,
-    // preferring web standards over Node.js API.
-    //
+/**
+ * Map multiple JavaScript environments to a single common API,
+ *  preferring web standards over Node.js API.
+ * @returns {number|*}
+ */
+export const setupEnvironment = () => {
     // Environments considered:
     // - Browsers
     // - Node.js
@@ -343,7 +344,7 @@
                         const fd = getInt64(sp + 8);
                         const p = getInt64(sp + 16);
                         const n = this.mem.getInt32(sp + 24, true);
-                        fs.writeSync(fd, new Uint8Array(this._inst.exports.mem.buffer, p, n));
+                        global.fs.writeSync(fd, new Uint8Array(this._inst.exports.mem.buffer, p, n));
                     },
 
                     // func resetMemoryDataView()
@@ -695,4 +696,4 @@
             process.exit(1);
         });
     }
-})();
+}

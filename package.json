@@ -1,11 +1,29 @@
 {
   "name": "fast-topics",
   "version": "1.0.1",
+  "description": "Unsupervised topic extraction from text using Latent Dirichlet Allocation in WebAssembly",
+  "keywords": [
+    "topic-extraction",
+    "nlp",
+    "webassembly",
+    "keyword-extraction"
+  ],
+  "license": "MIT",
   "main": "dist/topics.js",
+  "browser": "dist/topics.js",
   "types": "dist/topics.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "email": "brian@brianevans.tech",
+    "name": "Brian Evans",
+    "url": "brianevans.tech"
+  },
   "scripts": {
     "build:ts": "tsc",
     "watch:ts": "tsc -b -w",
+    "clean:ts": "tsc -b --clean",
     "build:go": "cd go && set GOOS=js&&set GOARCH=wasm&& go build -o ../dist/topics.wasm",
     "build": "npm run build:ts && npm run build:go",
     "demo": "cd demo && npm i && npm run start"
@@ -14,5 +32,11 @@
   "devDependencies": {
     "@types/golang-wasm-exec": "^1.15.0",
     "typescript": "^4.5.5"
+  },
+  "repository": "github:mrbrianevans/fast-topics",
+  "homepage": "https://github.com/mrbrianevans/fast-topics#readme",
+  "bugs": {
+    "url": "https://github.com/mrbrianevans/fast-topics/issues",
+    "email": "brian@brianevans.tech"
   }
 }

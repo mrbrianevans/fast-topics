@@ -53,11 +53,10 @@ The WebAssembly module needs to be initialised before the function can be called
 is `await initialiseWasm()`. There are two built in initialisation methods: `initWithFetch` and `initWithBinary`.
 `initWithFetch` is the default and is recommended for better performance (due to streaming). It needs to be given a URL
 to request the static binary `.wasm` file from. The default URL is `node_modules/fast-topics/dist/topics.wasm`, but if
-you are using a bundler (like Webpack or Vite), then this probably isn't going to work. You need to provide a URL from
-your bundler to the file.
+you are using a bundler (like Webpack or [Vite](https://vitejs.dev/)), then this probably isn't going to work. You need
+to provide a URL from your bundler to the file.
 
 Example for Vite:
-
 ```javascript
 import {initialiseWasm} from 'fast-topics'
 import wasmUrl from 'fast-topics/dist/topics.wasm?url' // note ?url
@@ -68,6 +67,15 @@ await initialiseWasm(wasmUrl)
 When an import ends with `?url`, Vite automatically serves it at a static file, and assigns the URL to the import
 variable (`wasmUrl` in this example).
 
+Default works with [Snowpack](https://www.snowpack.dev/):
+
+```javascript
+import {initialiseWasm} from 'fast-topics'
+
+await initialiseWasm()
+// getTopics can now safely be called
+```
+
 The initialisation method can be set seperately to actually invoking it, as shown below:
 
 ```javascript
@@ -77,7 +85,7 @@ import {
     initWithFetch,
     setInitFunction
 } from 'fast-topics'
-import wasmUrl from 'fast-topics/dist/topics.wasm?url' // note ?url
+import wasmUrl from 'fast-topics/dist/topics.wasm?url' // ?url for Vite
 
 setInitFunction(initWithFetch(wasmUrl))
 
