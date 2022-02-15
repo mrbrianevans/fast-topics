@@ -26,7 +26,8 @@
     "clean:ts": "tsc -b --clean",
     "build:go": "cd go && set GOOS=js&&set GOARCH=wasm&& go build -o ../dist/topics.wasm",
     "build": "npm run build:ts && npm run build:go",
-    "demo": "cd demo && npm i && npm run start"
+    "demo": "cd demo && npm i && npm run start",
+    "prepack": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {

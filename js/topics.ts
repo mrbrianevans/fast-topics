@@ -44,12 +44,13 @@ export async function initialiseWasm(binary: ArrayBuffer)
  * call this before calling the getTopics function
  */
 export async function initialiseWasm(input?: string | ArrayBuffer) {
-    if (typeof getTopicsString !== 'undefined')
+    if (isGetTopicsReady())
         console.warn('WASM has already been initialised')
     if (typeof input === 'string') setInitFunction(initWithFetch(input))
     else if (input instanceof ArrayBuffer) setInitFunction(initWithBinary(input))
     else if (input) console.warn("Invalid input to 'initialiseWasm'. Must be either URL: string, or binary: ArrayBuffer")
     await initWasm()
+    console.assert(isGetTopicsReady(), 'fast-topics WebAssembly module failed to instantiate')
 }
 
 /**
@@ -69,7 +70,7 @@ interface GetTopicsReturnType {
  * @param opts - options for the topic extraction
  */
 export const getTopics = (docs: string[], opts?: GetTopicsOptions): GetTopicsReturnType => {
-    if (typeof getTopicsString === 'undefined') {
+    if (!isGetTopicsReady()) {
         throw new Error("WASM has not been initialised. Call `await intialiseWasm()`")
     }
     try {
@@ -82,3 +83,7 @@ export const getTopics = (docs: string[], opts?: GetTopicsOptions): GetTopicsRet
     }
 }
 
+/**
+ * Returns true if getTopics() is ready to be called. This depends on the WebAssembly module being instantiated first.
+ */
+export const isGetTopicsReady = (): boolean => typeof getTopicsString !== 'undefined'
