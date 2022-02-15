@@ -28,7 +28,8 @@
     "build": "npm run build:ts && npm run build:go",
     "demo": "cd demo && npm i && npm run start",
     "prepack": "npm run build",
-    "docs": "typedoc --out docs js/topics.ts js/GetTopicsOptions.ts"
+    "docs": "typedoc --out docs js/topics.ts js/GetTopicsOptions.ts",
+    "test": "cd go/logic && go test"
   },
   "devDependencies": {
     "@types/golang-wasm-exec": "^1.15.0",

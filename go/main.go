@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fast-topics/logic"
 	"github.com/norunners/vert"
 	"syscall/js"
 )
@@ -27,12 +28,12 @@ func jsonWrapper() js.Func {
 		if err != nil {
 			return jsError.New("Bad input, could not assign string array")
 		}
-		goOptions := GetTopicsOptions{numberOfTopics: options.Get("numberOfTopics").Int()}
-		docs, topics := getMainTopics(goCorpus, goOptions)
+		goOptions := logic.GetTopicsOptions{NumberOfTopics: options.Get("numberOfTopics").Int()}
+		docs, topics := logic.GetTopics(goCorpus, goOptions)
 		// combine into single JSON object { docs, topics }
 		stringified, _ := json.Marshal(struct {
-			Docs   map[int]DocTopics  `json:"docs,omitempty"`
-			Topics map[int]TopicWords `json:"topics,omitempty"`
+			Docs   map[int]logic.DocTopics  `json:"docs,omitempty"`
+			Topics map[int]logic.TopicWords `json:"topics,omitempty"`
 		}{Docs: docs, Topics: topics})
 		return string(stringified)
 	}) // returns a serialised JSON string

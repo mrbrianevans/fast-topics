@@ -1,6 +1,7 @@
-package main
+package logic
 
 import (
+	"fast-topics/timer"
 	"fmt"
 	"github.com/james-bowman/nlp"
 	"sort"
@@ -29,11 +30,11 @@ func (d DocTopics) Less(i, j int) bool { return d[i].Rank > d[j].Rank }
 func (d DocTopics) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
 
 type GetTopicsOptions struct {
-	numberOfTopics int `js:"numberOfTopics"`
+	NumberOfTopics int `js:"numberOfTopics"`
 }
 
-func getMainTopics(corpus []string, options GetTopicsOptions) (map[int]DocTopics, map[int]TopicWords) {
-	defer Track(RunningTime(fmt.Sprintf("Get %d main topics of %d documents", options.numberOfTopics, len(corpus))))
+func GetTopics(corpus []string, options GetTopicsOptions) (map[int]DocTopics, map[int]TopicWords) {
+	defer timer.Track(timer.RunningTime(fmt.Sprintf("Get %d main topics of %d documents", options.NumberOfTopics, len(corpus))))
 	// Create a pipeline with a count vectoriser and LDA transformer for 2 topics
 	vectoriser := nlp.NewCountVectoriser(stopWords...)
 	tdif := nlp.NewTfidfTransformer()
@@ -43,12 +44,11 @@ func getMainTopics(corpus []string, options GetTopicsOptions) (map[int]DocTopics
 
 	topicsOverWords := lda.Components()
 	tr, tc := topicsOverWords.Dims()
-	fmt.Println(tr, "topics")
 	vocab := make([]string, len(vectoriser.Vocabulary))
 	for k, v := range vectoriser.Vocabulary {
 		vocab[v] = k
 	}
-	topics := make(map[int]TopicWords, options.numberOfTopics)
+	topics := make(map[int]TopicWords, options.NumberOfTopics)
 	for topic := 0; topic < tr; topic++ {
 		topicWords := make(TopicWords, tc)
 		for word := 0; word < tc; word++ {
