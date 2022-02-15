@@ -37,9 +37,10 @@ func GetTopics(corpus []string, options GetTopicsOptions) (map[int]DocTopics, ma
 	defer timer.Track(timer.RunningTime(fmt.Sprintf("Get %d main topics of %d documents", options.NumberOfTopics, len(corpus))))
 	// Create a pipeline with a count vectoriser and LDA transformer for 2 topics
 	vectoriser := nlp.NewCountVectoriser(stopWords...)
-	tdif := nlp.NewTfidfTransformer()
-	lda := nlp.NewLatentDirichletAllocation(options.numberOfTopics)
-	pipeline := nlp.NewPipeline(vectoriser, tdif, lda)
+	// the tdif would be nice, but its too expensive for large corpuses of documents
+	//tdif := nlp.NewTfidfTransformer()
+	lda := nlp.NewLatentDirichletAllocation(options.NumberOfTopics)
+	pipeline := nlp.NewPipeline(vectoriser, lda)
 	docsOverTopics, _ := pipeline.FitTransform(corpus...)
 
 	topicsOverWords := lda.Components()
