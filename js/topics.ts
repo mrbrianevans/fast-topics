@@ -58,7 +58,7 @@ export async function initialiseWasm(input?: string | ArrayBuffer) {
  * `docs` is an array of the documents (with the same indexes as the input documents).
  * `topics` is an array of the generated topics, and their indexes match the topic references in documents.
  */
-interface GetTopicsReturnType {
+export interface GetTopicsReturnType {
     // todo: there is an issue which causes these to be { '1': [...], '2': [...] }, rather than [ [...], [...] ]
     docs: { topic: number, rank: number }[][]
     topics: { word: number, rank: number }[][]

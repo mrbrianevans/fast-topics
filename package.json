@@ -27,11 +27,12 @@
     "build:go": "cd go && set GOOS=js&&set GOARCH=wasm&& go build -o ../dist/topics.wasm",
     "build": "npm run build:ts && npm run build:go",
     "demo": "cd demo && npm i && npm run start",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "docs": "typedoc --out docs js/topics.ts js/GetTopicsOptions.ts"
   },
-  "dependencies": {},
   "devDependencies": {
     "@types/golang-wasm-exec": "^1.15.0",
+    "typedoc": "^0.22.11",
     "typescript": "^4.5.5"
   },
   "repository": "github:mrbrianevans/fast-topics",
