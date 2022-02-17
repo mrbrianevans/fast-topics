@@ -1,6 +1,6 @@
 {
   "name": "fast-topics",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Unsupervised topic extraction from text using Latent Dirichlet Allocation in WebAssembly",
   "keywords": [
     "topic-extraction",
