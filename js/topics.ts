@@ -60,9 +60,9 @@ export async function initialiseWasm(input?: string | ArrayBuffer) {
  * `topics` is an array of the generated topics, and their indexes match the topic references in documents.
  */
 export interface GetTopicsReturnType {
-    // todo: there is an issue which causes these to be { '1': [...], '2': [...] }, rather than [ [...], [...] ]
-    docs: { topic: number, rank: number }[][]
-    topics: { word: number, rank: number }[][]
+    // there is an issue which causes these to be { '1': [...], '2': [...] }, rather than [ [...], [...] ]
+    docs: Record<string, { topic: number, rank: number }>[]
+    topics: Record<string, { word: number, rank: number }>[]
 }
 
 /**
@@ -89,3 +89,8 @@ export const getTopics = (docs: string[], opts?: Partial<GetTopicsOptions>): Get
  * Returns true if getTopics() is ready to be called. This depends on the WebAssembly module being instantiated first.
  */
 export const isGetTopicsReady = (): boolean => typeof getTopicsString !== 'undefined'
+
+/**
+ * Options for getTopics.
+ */
+export type {GetTopicsOptions}

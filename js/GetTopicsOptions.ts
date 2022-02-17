@@ -1,9 +1,9 @@
 export interface GetTopicsOptions {
-    // the number of topics to extract
+    /** the number of topics to extract */
     numberOfTopics: number
-    // the minimum rank for a word to be included in a topic
+    /** the minimum rank for a word to be included in a topic */
     topicsMinWordRank: number
-    // the minimum rank for a document to be tagged with a topic
+    /** the minimum rank for a document to be tagged with a topic */
     docsMinTopicRank: number
 }
 
