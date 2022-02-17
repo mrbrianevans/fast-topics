@@ -1,5 +1,6 @@
 import {setupEnvironment} from './wasm_exec.js'
 import type {GetTopicsOptions} from "./GetTopicsOptions";
+import {defaultGetTopicsOptions} from "./GetTopicsOptions.js";
 
 setupEnvironment() //  needs to set up before anything else will work
 /**
@@ -69,12 +70,13 @@ export interface GetTopicsReturnType {
  * @param docs - an array of strings, where each string is a "document".
  * @param opts - options for the topic extraction
  */
-export const getTopics = (docs: string[], opts?: GetTopicsOptions): GetTopicsReturnType => {
+export const getTopics = (docs: string[], opts?: Partial<GetTopicsOptions>): GetTopicsReturnType => {
     if (!isGetTopicsReady()) {
         throw new Error("WASM has not been initialised. Call `await intialiseWasm()`")
     }
     try {
-        const result = getTopicsString(docs, opts ?? {numberOfTopics: 2})
+        const options: GetTopicsOptions = {...defaultGetTopicsOptions, ...opts}
+        const result = getTopicsString(docs, options)
         if (typeof result === "string") return JSON.parse(result)
         else if (result instanceof Error) throw result
         else throw new Error("Unrecognised value returned: " + typeof result + '. Value=' + String(result))

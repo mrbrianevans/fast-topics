@@ -4,7 +4,6 @@
     padding-left: 20px;
     text-indent: -20px;
 }
-
 .tsd-kind-icon:before {
     content: "";
     display: inline-block;
@@ -14,7 +13,6 @@
     margin: 0 3px 2px 0;
     background-image: url(./icons.png);
 }
-
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     .tsd-kind-icon:before {
         background-image: url(./icons@2x.png);
@@ -29,11 +27,9 @@
 .tsd-kind-object-literal > .tsd-kind-icon:before {
     background-position: 0px -17px;
 }
-
 .tsd-kind-object-literal.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -17px -17px;
 }
-
 .tsd-kind-object-literal.tsd-is-private > .tsd-kind-icon:before {
     background-position: -34px -17px;
 }
@@ -41,11 +37,9 @@
 .tsd-kind-class > .tsd-kind-icon:before {
     background-position: 0px -34px;
 }
-
 .tsd-kind-class.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -17px -34px;
 }
-
 .tsd-kind-class.tsd-is-private > .tsd-kind-icon:before {
     background-position: -34px -34px;
 }
@@ -66,11 +60,9 @@
 .tsd-kind-interface > .tsd-kind-icon:before {
     background-position: 0px -68px;
 }
-
 .tsd-kind-interface.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -17px -68px;
 }
-
 .tsd-kind-interface.tsd-is-private > .tsd-kind-icon:before {
     background-position: -34px -68px;
 }
@@ -92,11 +84,9 @@
 .tsd-kind-namespace > .tsd-kind-icon:before {
     background-position: 0px -102px;
 }
-
 .tsd-kind-namespace.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -17px -102px;
 }
-
 .tsd-kind-namespace.tsd-is-private > .tsd-kind-icon:before {
     background-position: -34px -102px;
 }
@@ -104,11 +94,9 @@
 .tsd-kind-module > .tsd-kind-icon:before {
     background-position: 0px -102px;
 }
-
 .tsd-kind-module.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -17px -102px;
 }
-
 .tsd-kind-module.tsd-is-private > .tsd-kind-icon:before {
     background-position: -34px -102px;
 }
@@ -116,11 +104,9 @@
 .tsd-kind-enum > .tsd-kind-icon:before {
     background-position: 0px -119px;
 }
-
 .tsd-kind-enum.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -17px -119px;
 }
-
 .tsd-kind-enum.tsd-is-private > .tsd-kind-icon:before {
     background-position: -34px -119px;
 }
@@ -128,11 +114,9 @@
 .tsd-kind-enum-member > .tsd-kind-icon:before {
     background-position: 0px -136px;
 }
-
 .tsd-kind-enum-member.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -17px -136px;
 }
-
 .tsd-kind-enum-member.tsd-is-private > .tsd-kind-icon:before {
     background-position: -34px -136px;
 }
@@ -140,11 +124,9 @@
 .tsd-kind-signature > .tsd-kind-icon:before {
     background-position: 0px -153px;
 }
-
 .tsd-kind-signature.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -17px -153px;
 }
-
 .tsd-kind-signature.tsd-is-private > .tsd-kind-icon:before {
     background-position: -34px -153px;
 }
@@ -152,11 +134,9 @@
 .tsd-kind-type-alias > .tsd-kind-icon:before {
     background-position: 0px -170px;
 }
-
 .tsd-kind-type-alias.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -17px -170px;
 }
-
 .tsd-kind-type-alias.tsd-is-private > .tsd-kind-icon:before {
     background-position: -34px -170px;
 }
@@ -178,11 +158,9 @@
 .tsd-kind-variable > .tsd-kind-icon:before {
     background-position: -136px -0px;
 }
-
 .tsd-kind-variable.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -0px;
 }
-
 .tsd-kind-variable.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -0px;
 }
@@ -236,11 +214,9 @@
 .tsd-kind-property > .tsd-kind-icon:before {
     background-position: -136px -0px;
 }
-
 .tsd-kind-property.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -0px;
 }
-
 .tsd-kind-property.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -0px;
 }
@@ -294,11 +270,9 @@
 .tsd-kind-get-signature > .tsd-kind-icon:before {
     background-position: -136px -17px;
 }
-
 .tsd-kind-get-signature.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -17px;
 }
-
 .tsd-kind-get-signature.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -17px;
 }
@@ -353,11 +327,9 @@
 .tsd-kind-set-signature > .tsd-kind-icon:before {
     background-position: -136px -34px;
 }
-
 .tsd-kind-set-signature.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -34px;
 }
-
 .tsd-kind-set-signature.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -34px;
 }
@@ -412,11 +384,9 @@
 .tsd-kind-accessor > .tsd-kind-icon:before {
     background-position: -136px -51px;
 }
-
 .tsd-kind-accessor.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -51px;
 }
-
 .tsd-kind-accessor.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -51px;
 }
@@ -470,11 +440,9 @@
 .tsd-kind-function > .tsd-kind-icon:before {
     background-position: -136px -68px;
 }
-
 .tsd-kind-function.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -68px;
 }
-
 .tsd-kind-function.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -68px;
 }
@@ -528,11 +496,9 @@
 .tsd-kind-method > .tsd-kind-icon:before {
     background-position: -136px -68px;
 }
-
 .tsd-kind-method.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -68px;
 }
-
 .tsd-kind-method.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -68px;
 }
@@ -559,15 +525,12 @@
 .tsd-kind-method.tsd-parent-kind-class.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -68px;
 }
-
 .tsd-kind-method.tsd-parent-kind-enum > .tsd-kind-icon:before {
     background-position: -170px -68px;
 }
-
 .tsd-kind-method.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -187px -68px;
 }
-
 .tsd-kind-method.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -68px;
 }
@@ -584,11 +547,9 @@
 .tsd-kind-call-signature > .tsd-kind-icon:before {
     background-position: -136px -68px;
 }
-
 .tsd-kind-call-signature.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -68px;
 }
-
 .tsd-kind-call-signature.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -68px;
 }
@@ -770,11 +731,9 @@
 .tsd-kind-constructor > .tsd-kind-icon:before {
     background-position: -136px -102px;
 }
-
 .tsd-kind-constructor.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -102px;
 }
-
 .tsd-kind-constructor.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -102px;
 }
@@ -829,11 +788,9 @@
 .tsd-kind-constructor-signature > .tsd-kind-icon:before {
     background-position: -136px -102px;
 }
-
 .tsd-kind-constructor-signature.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -102px;
 }
-
 .tsd-kind-constructor-signature.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -102px;
 }
@@ -889,11 +846,9 @@
 .tsd-kind-index-signature > .tsd-kind-icon:before {
     background-position: -136px -119px;
 }
-
 .tsd-kind-index-signature.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -119px;
 }
-
 .tsd-kind-index-signature.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -119px;
 }
@@ -948,19 +903,15 @@
 .tsd-kind-event > .tsd-kind-icon:before {
     background-position: -136px -136px;
 }
-
 .tsd-kind-event.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -136px;
 }
-
 .tsd-kind-event.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -136px;
 }
-
 .tsd-kind-event.tsd-parent-kind-class > .tsd-kind-icon:before {
     background-position: -51px -136px;
 }
-
 .tsd-kind-event.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind-icon:before {
     background-position: -68px -136px;
 }
@@ -977,15 +928,12 @@
 .tsd-kind-event.tsd-parent-kind-class.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -136px;
 }
-
 .tsd-kind-event.tsd-parent-kind-enum > .tsd-kind-icon:before {
     background-position: -170px -136px;
 }
-
 .tsd-kind-event.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -187px -136px;
 }
-
 .tsd-kind-event.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -136px;
 }
@@ -1002,19 +950,15 @@
 .tsd-is-static > .tsd-kind-icon:before {
     background-position: -136px -153px;
 }
-
 .tsd-is-static.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -153px;
 }
-
 .tsd-is-static.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -153px;
 }
-
 .tsd-is-static.tsd-parent-kind-class > .tsd-kind-icon:before {
     background-position: -51px -153px;
 }
-
 .tsd-is-static.tsd-parent-kind-class.tsd-is-inherited > .tsd-kind-icon:before {
     background-position: -68px -153px;
 }
@@ -1031,15 +975,12 @@
 .tsd-is-static.tsd-parent-kind-class.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -153px;
 }
-
 .tsd-is-static.tsd-parent-kind-enum > .tsd-kind-icon:before {
     background-position: -170px -153px;
 }
-
 .tsd-is-static.tsd-parent-kind-enum.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -187px -153px;
 }
-
 .tsd-is-static.tsd-parent-kind-enum.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -153px;
 }
@@ -1056,11 +997,9 @@
 .tsd-is-static.tsd-kind-function > .tsd-kind-icon:before {
     background-position: -136px -170px;
 }
-
 .tsd-is-static.tsd-kind-function.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -170px;
 }
-
 .tsd-is-static.tsd-kind-function.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -170px;
 }
@@ -1116,11 +1055,9 @@
 .tsd-is-static.tsd-kind-method > .tsd-kind-icon:before {
     background-position: -136px -170px;
 }
-
 .tsd-is-static.tsd-kind-method.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -170px;
 }
-
 .tsd-is-static.tsd-kind-method.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -170px;
 }
@@ -1239,11 +1176,9 @@
 .tsd-is-static.tsd-kind-event > .tsd-kind-icon:before {
     background-position: -136px -187px;
 }
-
 .tsd-is-static.tsd-kind-event.tsd-is-protected > .tsd-kind-icon:before {
     background-position: -153px -187px;
 }
-
 .tsd-is-static.tsd-kind-event.tsd-is-private > .tsd-kind-icon:before {
     background-position: -119px -187px;
 }

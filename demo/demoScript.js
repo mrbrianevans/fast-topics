@@ -31,7 +31,7 @@ const documents = [
     'The Yorkshire Terrier (often shortened as Yorkie) is one of the smallest dog breeds of the terrier type, and of any dog breed'
 ]
 console.time('Process example')
-const example = getTopics(documents, {numberOfTopics: 2})
+const example = getTopics(documents, {numberOfTopics: 2, docsMinTopicRank: 0.7, topicsMinWordRank: 0.04})
 console.timeEnd('Process example')
 
 console.log('Example output for politicians and dog breed corpora')
@@ -48,10 +48,10 @@ docContainer.setAttribute('grid', 'column')
 docContainer.setAttribute('column', 'true')
 for (const docIdx in example.docs) {
     const docEl = document.createElement('blockquote')
-    const {topic, rank} = example.docs[docIdx][0]
+    const {topic, rank} = example.docs[docIdx][0] ?? {topic: 'none', rank: 0}
     docEl.innerHTML = `<div class="card-box">
       <div class="card-content">
-        <h3 class="title"><span class="tag-box ${rank > 0.8 ? '-success' : '-error'}">
+        <h3 class="title"><span class="tag-box ${rank > 0.8 ? '-success' : rank > 0 ? '-warning' : '-error'}">
         Topic #${topic} (${(rank * 100).toFixed(1)}%)</span></h3>
         <p class="content">${documents[docIdx]}</p>
       </div>
@@ -68,11 +68,9 @@ for (const topicIdx in example.topics) {
     docEl.innerHTML = `<div class="card-box">
       <div class="card-content">
         <h3 class="title">Topic #${topicIdx}</h3>
-        <p class="content">
-<span class="tag-box">${example.topics[topicIdx][0].word}</span>
-<span class="tag-box">${example.topics[topicIdx][1].word}</span>
-<span class="tag-box">${example.topics[topicIdx][3].word}</span>
-</p>
+        <p class="content"> 
+${example.topics[topicIdx].map(({word}) => '<span class="tag-box">' + word + '</span>')}
+        </p>
       </div>
     </div>`
     topicContainer.appendChild(docEl)

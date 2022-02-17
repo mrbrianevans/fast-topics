@@ -30,7 +30,9 @@ func (d DocTopics) Less(i, j int) bool { return d[i].Rank > d[j].Rank }
 func (d DocTopics) Swap(i, j int)      { d[i], d[j] = d[j], d[i] }
 
 type GetTopicsOptions struct {
-	NumberOfTopics int `js:"numberOfTopics"`
+	NumberOfTopics    int     `js:"numberOfTopics"`
+	TopicsMinWordRank float64 `js:"topicsMinWordRank"`
+	DocsMinTopicRank  float64 `js:"docsMinTopicRank"`
 }
 
 func GetTopics(corpus []string, options GetTopicsOptions) (map[int]DocTopics, map[int]TopicWords) {
@@ -51,11 +53,13 @@ func GetTopics(corpus []string, options GetTopicsOptions) (map[int]DocTopics, ma
 	}
 	topics := make(map[int]TopicWords, options.NumberOfTopics)
 	for topic := 0; topic < tr; topic++ {
-		topicWords := make(TopicWords, tc)
+		var topicWords TopicWords = []TopicWord{}
 		for word := 0; word < tc; word++ {
-			topicWords[word] = TopicWord{
-				Word: vocab[word],
-				Rank: topicsOverWords.At(topic, word),
+			if topicsOverWords.At(topic, word) > options.TopicsMinWordRank {
+				topicWords = append(topicWords, TopicWord{
+					Word: vocab[word],
+					Rank: topicsOverWords.At(topic, word),
+				})
 			}
 		}
 		sort.Sort(topicWords)
@@ -64,14 +68,16 @@ func GetTopics(corpus []string, options GetTopicsOptions) (map[int]DocTopics, ma
 
 	// Examine Document over Topic probability distribution
 	dr, dc := docsOverTopics.Dims()
-	docs := make(map[int]DocTopics, dc)
+	docs := make(map[int]DocTopics, len(corpus))
 	for doc := 0; doc < dc; doc++ {
 		//fmt.Printf("\nDocument '%s' -", corpus[doc])
-		docTopics := make(DocTopics, dr)
+		var docTopics DocTopics = []DocTopic{}
 		for topic := 0; topic < dr; topic++ {
-			docTopics[topic] = DocTopic{
-				Topic: topic,
-				Rank:  docsOverTopics.At(topic, doc),
+			if docsOverTopics.At(topic, doc) > options.DocsMinTopicRank {
+				docTopics = append(docTopics, DocTopic{
+					Topic: topic,
+					Rank:  docsOverTopics.At(topic, doc),
+				})
 			}
 		}
 		sort.Sort(docTopics)

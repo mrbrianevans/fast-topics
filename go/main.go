@@ -28,7 +28,11 @@ func jsonWrapper() js.Func {
 		if err != nil {
 			return jsError.New("Bad input, could not assign string array")
 		}
-		goOptions := logic.GetTopicsOptions{NumberOfTopics: options.Get("numberOfTopics").Int()}
+		goOptions := logic.GetTopicsOptions{
+			NumberOfTopics:    options.Get("numberOfTopics").Int(),
+			TopicsMinWordRank: options.Get("topicsMinWordRank").Float(),
+			DocsMinTopicRank:  options.Get("docsMinTopicRank").Float(),
+		}
 		docs, topics := logic.GetTopics(goCorpus, goOptions)
 		// combine into single JSON object { docs, topics }
 		stringified, _ := json.Marshal(struct {
