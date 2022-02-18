@@ -1,6 +1,5 @@
 import {setupEnvironment} from './wasm_exec.js'
 import type {GetTopicsOptions} from "./GetTopicsOptions";
-import {defaultGetTopicsOptions} from "./GetTopicsOptions.js";
 
 setupEnvironment() //  needs to set up before anything else will work
 /**
@@ -65,6 +64,9 @@ export interface GetTopicsReturnType {
     topics: Record<string, { word: number, rank: number }>[]
 }
 
+const defaultGetTopicsOptions: GetTopicsOptions = {
+    numberOfTopics: 5, topicsMinWordRank: 0, docsMinTopicRank: 0
+}
 /**
  * Get the topics in a set of documents (strings).
  * @param docs - an array of strings, where each string is a "document".
@@ -90,7 +92,5 @@ export const getTopics = (docs: string[], opts?: Partial<GetTopicsOptions>): Get
  */
 export const isGetTopicsReady = (): boolean => typeof getTopicsString !== 'undefined'
 
-/**
- * Options for getTopics.
- */
+
 export type {GetTopicsOptions}
